@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "author": "Steffanus Wiedjaja",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": -38.7, "left": -80.58, "attrs": {} },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 71.15,
+        "left": 28.8,
+        "attrs": { "value": "100" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 34.8,
+        "left": 90.2,
+        "attrs": { "color": "red", "flip": "1" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "esp:4", "r1:1", "green", [ "v0" ] ],
+      [ "r1:2", "led1:A", "green", [ "v0" ] ],
+      [ "led1:C", "esp:GND.7", "black", [ "v9.6" ] ]
+    ],
+    "dependencies": {}
+  }
